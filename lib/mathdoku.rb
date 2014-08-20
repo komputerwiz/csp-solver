@@ -7,7 +7,7 @@ class Mathdoku < CSP
     cols = ('A'..('A'.ord+n-1).chr).to_a
     rows = (1..n).to_a
 
-    vars cols.product(rows).map(&:join).map(&:to_sym), 1..6
+    vars cols.product(rows).map(&:join).map(&:to_sym), 1..n
 
     cols.each do |c|
       all_different(rows.map {|r| "#{c}#{r}".to_sym})
