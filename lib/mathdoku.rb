@@ -4,17 +4,17 @@ class Mathdoku < CSP
   def initialize(n)
     super()
 
-    cols = ('A'..('A'.ord+n-1).chr).to_a
-    rows = (1..n).to_a
+    @cols = ('A'..('A'.ord+n-1).chr).to_a
+    @rows = (1..n).to_a
 
-    vars cols.product(rows).map(&:join).map(&:to_sym), 1..n
+    vars @cols.product(@rows).map(&:join).map(&:to_sym), 1..n
 
-    cols.each do |c|
-      all_different(rows.map {|r| "#{c}#{r}".to_sym})
+    @cols.each do |c|
+      all_different(@rows.map {|r| "#{c}#{r}".to_sym})
     end
 
-    rows.each do |r|
-      all_different(cols.map {|c| "#{c}#{r}".to_sym})
+    @rows.each do |r|
+      all_different(@cols.map {|c| "#{c}#{r}".to_sym})
     end
   end
 
@@ -37,8 +37,8 @@ class Mathdoku < CSP
   end
 
   def print!(solution)
-    rows.each do |r|
-      cols.each do |c|
+    @rows.each do |r|
+      @cols.each do |c|
         print solution["#{c}#{r}".to_sym] + ' '
       end
       print "\n"
