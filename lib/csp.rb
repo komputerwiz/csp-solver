@@ -59,7 +59,7 @@ class CSP
       end
     end
 
-    var = domains.select { |var,dom| dom.size > 1 }.keys.sample
+    var = domains.select { |var,dom| dom.size > 1 }.keys.sort_by{|k| domains[k].size}.first
     dom = domains[var]
 
     dom.each do |value|
