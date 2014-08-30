@@ -22,18 +22,16 @@ class Mathdoku < CSP
     constrain(*vars) { |*args| args.inject(:+) == value }
   end
 
-  def difference(value, *vars)
-    raise ArgumentError, 'Only two vars are allowed' unless vars.size == 2
-    constrain(*vars) { |a,b| a-b == value or b-a == value }
+  def difference(value, v1, v2)
+    constrain(v1, v2) { |a,b| a-b == value or b-a == value }
   end
 
   def product(value, *vars)
     constrain(*vars) { |*args| args.inject(:*) == value }
   end
 
-  def quotient(value, *vars)
-    raise ArgumentError, 'Only two vars are allowed' unless vars.size == 2
-    constrain(*vars) { |a,b| a.fdiv(b) == value or b.fdiv(a) == value }
+  def quotient(value, v1, v2)
+    constrain(v1, v2) { |a,b| a.fdiv(b) == value or b.fdiv(a) == value }
   end
 
   def print!(solution)
