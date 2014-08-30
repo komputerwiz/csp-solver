@@ -39,7 +39,7 @@ class Mathdoku < CSP
   def print!(solution)
     @rows.each do |r|
       @cols.each do |c|
-        print solution["#{c}#{r}".to_sym] + ' '
+        print solution["#{c}#{r}".to_sym].to_s + ' '
       end
       print "\n"
     end
