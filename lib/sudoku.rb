@@ -36,39 +36,3 @@ class Sudoku < CSP
     end
   end
 end
-
-
-
-s = Sudoku.new(3)
-
-s.assign({
-  :A1 => 8,
-  :C2 => 3,
-  :D2 => 6,
-  :B3 => 7,
-  :E3 => 9,
-  :G3 => 2,
-  :B4 => 5,
-  :F4 => 7,
-  :E5 => 4,
-  :F5 => 5,
-  :G5 => 7,
-  :D6 => 1,
-  :H6 => 3,
-  :C7 => 1,
-  :H7 => 6,
-  :I7 => 8,
-  :C8 => 8,
-  :D8 => 5,
-  :H8 => 1,
-  :B9 => 9,
-  :G9 => 4
-})
-
-solution = s.solve
-
-if solution
-  s.print! solution
-else
-  print "no solution"
-end
