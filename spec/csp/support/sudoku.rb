@@ -1,7 +1,7 @@
 $LOAD_PATH << File.dirname(__FILE__)
-require 'csp'
+require 'csp-solver'
 
-class Sudoku < CSP
+class Sudoku < CSP::Solver::Problem
   def initialize(n)
     super()
 

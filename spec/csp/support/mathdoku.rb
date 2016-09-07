@@ -1,6 +1,6 @@
-require 'csp'
+require 'csp-solver'
 
-class Mathdoku < CSP
+class Mathdoku < CSP::Solver::Problem
   def initialize(n)
     super()
 
