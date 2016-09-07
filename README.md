@@ -1,5 +1,5 @@
 # CSP::Solver
-A ruby library for solving arbitrary [constraint satisfaction
+A gem for solving arbitrary [constraint satisfaction
 problems][wiki-csp] (CSPs). If the constraints are [hard][hard] (as
 opposed to flexible/soft) and can be specified in the Ruby programming
 language, then this library can find a solution.
@@ -22,7 +22,24 @@ Or install it yourself as:
 
 ## Usage
 
-[Official documentation and API](http://komputerwiz.net/apps/csp-solver)
+```ruby
+# first we need to set up a Problem
+problem = CSP::Solver::Problem.new
+# then we need to set up some variables and their domain
+problem.vars weekdays, meals
+# then we set up constraints as predicate blocks
+problem.all_pairs(weekdays) { |a, b| a != b}
+# (or you can use the convenience method `all_different`)
+# problem.all_different(weekdays)
+# then it's as simple as calling #solve
+problem.solve
+# which returns to us a hash of variables as keys, and
+# domain entries as values
+# => { weekday: meal }
+```
+
+See also: [Official documentation and
+API](http://komputerwiz.net/apps/csp-solver)
 
 ## Development
 
