@@ -1,8 +1,7 @@
-# Csp::Solver
-
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/csp/solver`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+# CSP::Solver
+A ruby library for solving arbitrary [constraint satisfaction
+problems][wiki-csp] (CSPs). If the constraints can be specified in the ruby
+programming language, then this library can find a solution.
 
 ## Installation
 
@@ -22,7 +21,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+[Official documentation and API](http://komputerwiz.net/apps/csp-solver)
 
 ## Development
 
@@ -32,10 +31,11 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/csp-solver. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/komputerwhiz/csp-solver. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
 
+[wiki-csp]: http://en.wikipedia.org/wiki/Constraint_satisfaction_problem
