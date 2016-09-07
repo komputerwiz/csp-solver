@@ -1,51 +1,20 @@
 require 'csp/solver/version'
+require 'csp/solver/convenient_constraints'
 require 'securerandom'
 
 module CSP
   module Solver
+    # You initialize a problem, set its variables and constraints, then
+    # can call `solve` on it.
     class Problem
+      include ConvenientConstraints
+
       def initialize
         @vars = {}
         @gen_prefix = '__gen__'
 
         @unary_constraints = Hash.new { |h, k| h[k] = [] }
         @binary_constraints = Hash.new { |h, k| h[k] = [] }
-      end
-
-      def var(id, domain)
-        @vars[id] = domain.to_a
-      end
-
-      def assign(hash)
-        hash.each { |x, v| @vars[x] = [v] }
-      end
-
-      def vars(ids, domain)
-        ids.each { |id| var(id, domain.dup) }
-      end
-
-      def constrain(*vars, &pred)
-        case vars.length
-        when 1
-          unary_constrain(vars[0], &pred)
-        when 2
-          binary_constrain(vars[0], vars[1], &pred)
-        else
-          nary_constrain(vars, &pred)
-        end
-      end
-
-      def all_pairs(vars, &block)
-        pairs = vars.repeated_combination(2).reject { |x, y| x == y }
-        pairs.each { |x, y| constrain(x, y, &block) }
-      end
-
-      def all_same(vars)
-        all_pairs(vars) { |x, y| x == y }
-      end
-
-      def all_different(vars)
-        all_pairs(vars) { |x, y| x != y }
       end
 
       # backtracking algorithm with interleaved local constraint propagation
@@ -75,6 +44,29 @@ module CSP
         domains[var] = dom
 
         false
+      end
+
+      def var(id, domain)
+        @vars[id] = domain.to_a
+      end
+
+      def vars(ids, domain)
+        ids.each { |id| var(id, domain.dup) }
+      end
+
+      def assign(hash)
+        hash.each { |x, v| @vars[x] = [v] }
+      end
+
+      def constrain(*vars, &pred)
+        case vars.length
+        when 1
+          unary_constrain(vars[0], &pred)
+        when 2
+          binary_constrain(vars[0], vars[1], &pred)
+        else
+          nary_constrain(vars, &pred)
+        end
       end
 
       private
