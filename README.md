@@ -1,8 +1,5 @@
 # CSP::Solver
-A gem for solving arbitrary [constraint satisfaction
-problems][wiki-csp] (CSPs). If the constraints are [hard][hard] (as
-opposed to flexible/soft) and can be specified in the Ruby programming
-language, then this library can find a solution.
+A gem for solving arbitrary [constraint satisfaction problems][wiki-csp] (CSPs). If the constraints are [hard][hard-constraints] (as opposed to flexible/soft) and can be specified in the Ruby programming language, then this library can find a solution.
 
 ## Installation
 
@@ -57,5 +54,4 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/komput
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
 
 [wiki-csp]: http://en.wikipedia.org/wiki/Constraint_satisfaction_problem
-[hard]:
-https://en.wikipedia.org/wiki/Constraint_satisfaction_problem#Flexible_CSPs
+[hard-constraints]: https://en.wikipedia.org/wiki/Constraint_satisfaction_problem#Flexible_CSPs
