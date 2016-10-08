@@ -1,23 +1,23 @@
-$: << File.dirname(__FILE__)
-require 'csp'
+$LOAD_PATH << File.dirname(__FILE__)
+require 'csp-solver'
 
-class Sudoku < CSP
+class Sudoku < CSP::Solver::Problem
   def initialize(n)
     super()
 
-    size = n*n
+    size = n * n
 
-    @cols = ('A'..('A'.ord+size-1).chr).to_a
+    @cols = ('A'..('A'.ord + size - 1).chr).to_a
     @rows = (1..size).to_a
 
     vars @cols.product(@rows).map(&:join).map(&:to_sym), 1..size
 
     @cols.each do |c|
-      all_different @rows.map {|r| "#{c}#{r}".to_sym}
+      all_different @rows.map { |r| "#{c}#{r}".to_sym }
     end
 
     @rows.each do |r|
-      all_different @cols.map {|c| "#{c}#{r}".to_sym}
+      all_different @cols.map { |c| "#{c}#{r}".to_sym }
     end
 
     @cols.each_slice(n) do |cs|
