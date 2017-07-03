@@ -23,6 +23,8 @@ Or install it yourself as:
 # first we need to set up a Problem
 problem = CSP::Solver::Problem.new
 # then we need to set up some variables and their domain
+weekdays = %i(monday tuesday wednesday thursday friday saturday sunday)
+meals = %w(bread cheese potatoes)
 problem.vars weekdays, meals
 # then we set up constraints as predicate blocks
 problem.all_pairs(weekdays) { |a, b| a != b}
