@@ -57,6 +57,7 @@ The gem is available as open source under the terms of the [MIT License](http://
 
 [wiki-csp]: http://en.wikipedia.org/wiki/Constraint_satisfaction_problem
 [hard-constraints]: https://en.wikipedia.org/wiki/Constraint_satisfaction_problem#Flexible_CSPs
-[csp-solver-docs]: http://komputerwiz.net/apps/csp-solver[git-flow]: http://nvie.com/posts/a-successful-git-branching-model/
+[csp-solver-docs]: http://komputerwiz.net/apps/csp-solver
+[git-flow]: http://nvie.com/posts/a-successful-git-branching-model/
 [rubygems.org]: https://rubygems.org
-[contributor covenant]: http://contributor-covenant.org
+[Contributor Covenant]: http://contributor-covenant.org
