@@ -20,6 +20,7 @@ Or install it yourself as:
 ## Usage
 
 ```ruby
+require 'csp'
 # first we need to set up a Problem
 problem = CSP::Solver::Problem.new
 # then we need to set up some variables and their domain
